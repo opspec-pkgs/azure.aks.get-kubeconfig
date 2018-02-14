@@ -34,19 +34,6 @@ op:
     resourceGroup:
     sshKeyValue:
     subscriptionId:
-    # begin optional params
-    adminUsername:
-    clientSecret:
-    dnsPrefix:
-    kubernetesVersion:
-    location:
-    loginTenantId:
-    loginType:
-    nodeCount:
-    nodeOSDiskSize:
-    nodeVmSize:
-    servicePrincipal:
-    # end optional params
   outputs:
 ```
 
