@@ -1,0 +1,16 @@
+name: build
+description: builds the package
+inputs:
+  pkg:
+    dir:
+      description: src content of the package
+      default: .
+outputs:
+  pkg:
+    dir:
+      description: src content of the package
+run:
+  serial:
+    - op:
+        pkg: { ref: test }
+        inputs: { pkg }

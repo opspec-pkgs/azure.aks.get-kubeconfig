@@ -1,0 +1,54 @@
+name: github.com/opspec-pkgs/azure.aks.get-kubeconfig
+description: Get access credentials for a managed Kubernetes cluster
+inputs:
+  loginId:
+    string:
+      constraints: { minLength: 1 }
+      description: id of user, service principal, or app to login with
+  loginSecret:
+    string:
+      constraints: { minLength: 1 }
+      description: secret of user, service principal, or app to login with
+      isSecret: true
+  loginTenantId:
+    string:
+      constraints: { minLength: 1 }
+      description: tenant id of user, service principal, or app to login with
+      default: " "
+  loginType:
+    string:
+      constraints: { enum: [user, sp]}
+      description: type of login; 'user' (default) or 'sp' for service principal
+      default: user
+  subscriptionId:
+    string:
+      constraints: { minLength: 1 }
+      description: id of azure subscription
+  name:
+    string:
+      constraints: { minLength: 1 }
+      description: name of provisioned AKS
+  resourceGroup:
+    string:
+      constraints: { minLength: 1 }
+      description: name of azure resource group
+outputs:
+  kubeConfig:
+    file:
+      description: Kubernetes configuration file to update.
+version: 1.0.0
+run:
+  container:
+    image: { ref: 'azuresdk/azure-cli-python:2.0.25' }
+    cmd: [ /cmd.sh ]
+    files:
+        /cmd.sh:
+        /kubeconfig: $(kubeConfig)
+    envVars:
+      loginId:
+      loginSecret:
+      loginTenantId:
+      loginType:
+      subscriptionId:
+      name:
+      resourceGroup:
