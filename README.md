@@ -35,6 +35,7 @@ op:
     sshKeyValue:
     subscriptionId:
   outputs:
+    kubeConfig:
 ```
 
 # Support
