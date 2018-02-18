@@ -16,11 +16,15 @@ inputs:
   pkg:
     dir:
       default: .
+outputs:
+  pkg:
+    dir: {}
 run:
   serial:
     - op:
         pkg: { ref: build }
         inputs:
+          version:
           pkg:
         outputs:
           pkg:

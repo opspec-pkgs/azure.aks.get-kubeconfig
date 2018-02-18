@@ -1,16 +1,24 @@
 name: build
 description: builds the package
 inputs:
+  version:
+    string:
+      constraints: { format: semver }
+      default: 0.0.0
   pkg:
     dir:
-      description: src content of the package
       default: .
 outputs:
   pkg:
-    dir:
-      description: src content of the package
+    dir: {}
 run:
   serial:
-    - op:
-        pkg: { ref: test }
-        inputs: { pkg }
+     - op:
+         pkg: { ref: test }
+         inputs: { pkg }
+     - op:
+         pkg: { ref: github.com/opspec-pkgs/_.pkg.generate-readme#1.0.1 }
+         inputs:
+           srcDir: $(pkg)
+         outputs:
+           srcDir: $(pkg)

@@ -2,7 +2,7 @@
 
 # Problem statement
 
-Get access credentials for a managed Kubernetes cluster.
+gets a kubeconfig for a kubernetes cluster in azure kubernetes service
 
 # Format
 
@@ -32,8 +32,11 @@ op:
     loginSecret:
     name:
     resourceGroup:
-    sshKeyValue:
     subscriptionId:
+    # begin optional params
+    loginTenantId:
+    loginType:
+    # end optional params
   outputs:
     kubeConfig:
 ```
