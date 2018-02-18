@@ -1,5 +1,6 @@
 name: github.com/opspec-pkgs/azure.aks.get-kubeconfig
-description: Get access credentials for a managed Kubernetes cluster
+description: gets a kubeconfig for a kubernetes cluster in azure kubernetes service
+icon: /icon.svg
 inputs:
   loginId:
     string:
