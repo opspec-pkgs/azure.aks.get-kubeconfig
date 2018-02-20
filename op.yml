@@ -37,14 +37,14 @@ outputs:
   kubeConfig:
     file:
       description: Kubernetes configuration file to update.
-version: 1.0.0
+version: 1.0.1
 run:
   container:
     image: { ref: 'azuresdk/azure-cli-python:2.0.25' }
     cmd: [ /cmd.sh ]
     files:
         /cmd.sh:
-        /kubeconfig: $(kubeConfig)
+        /kubeConfig: $(kubeConfig)
     envVars:
       loginId:
       loginSecret:
