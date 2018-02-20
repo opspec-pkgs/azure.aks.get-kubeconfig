@@ -32,10 +32,10 @@ else
   aksGetCredsCmd='az aks get-credentials'
   aksGetCredsCmd=$(printf "%s --name %s" "$aksGetCredsCmd" "$name")
   aksGetCredsCmd=$(printf "%s --resource-group %s" "$aksGetCredsCmd" "$resourceGroup")
-  aksGetCredsCmd=$(printf "%s --file /kubeConfig" "$aksGetCredsCmd")
+  aksGetCredsCmd=$(printf "%s --file -" "$aksGetCredsCmd")
 
   echo "Getting credentials"
-  eval "$aksGetCredsCmd"
+  eval "$aksGetCredsCmd" > /kubeConfig
 fi
 
 ### end create/update
