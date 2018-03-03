@@ -1,6 +1,5 @@
 name: github.com/opspec-pkgs/azure.aks.get-kubeconfig
 description: gets a kubeconfig for a kubernetes cluster in azure kubernetes service
-icon: /icon.svg
 inputs:
   loginId:
     string:
