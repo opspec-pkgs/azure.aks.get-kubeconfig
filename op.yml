@@ -36,7 +36,7 @@ outputs:
   kubeConfig:
     file:
       description: Kubernetes configuration file to update.
-version: 1.0.1
+version: 1.1.0
 run:
   container:
     image: { ref: 'azuresdk/azure-cli-python:2.0.25' }
